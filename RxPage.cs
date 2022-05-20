@@ -21,45 +21,76 @@ namespace RxMaui
         private void InitializeComponent()
         {
             Content =
-                new Grid
-                {
-                    RowDefinitions =
-                    {
-                        new RowDefinition(GridLength.Auto),
-                        new RowDefinition(GridLength.Auto),
-                        new RowDefinition(44),
-                        new RowDefinition(GridLength.Star),
-                    },
-                    Children =
-                    {
+               new VerticalStackLayout
+               {
+                   Children =
+                   {
                         new LifecycleButton
                         {
                             Text = "Get Count",
                             VerticalOptions = LayoutOptions.Start
                         }
-                            .Row(0)
                             .Assign(out _myButton),
                         new Button
                         {
                             Text = "Next Page",
                             VerticalOptions = LayoutOptions.Start
                         }
-                            .Row(1)
                             .Assign(out _nextPage),
                         new RxContentView()
                         {
-                        }
-                            .Row(2),
+                        },
                         new CollectionView
                         {
+                            BackgroundColor = Colors.Fuchsia,
                             VerticalOptions = LayoutOptions.Fill,
                         }
-                            .Row(3)
                             .Assign(out _myCollection),
-                    },
-                    Padding = 8,
-                    RowSpacing = 8,
-                };
+                   },
+                   Padding = 8,
+                   Spacing = 8,
+               };
+
+            //Content =
+            //    new Grid
+            //    {
+            //        RowDefinitions =
+            //        {
+            //            new RowDefinition(GridLength.Auto),
+            //            new RowDefinition(GridLength.Auto),
+            //            new RowDefinition(44),
+            //            new RowDefinition(GridLength.Star),
+            //        },
+            //        Children =
+            //        {
+            //            new LifecycleButton
+            //            {
+            //                Text = "Get Count",
+            //                VerticalOptions = LayoutOptions.Start
+            //            }
+            //                .Row(0)
+            //                .Assign(out _myButton),
+            //            new Button
+            //            {
+            //                Text = "Next Page",
+            //                VerticalOptions = LayoutOptions.Start
+            //            }
+            //                .Row(1)
+            //                .Assign(out _nextPage),
+            //            new RxContentView()
+            //            {
+            //            }
+            //                .Row(2),
+            //            new CollectionView
+            //            {
+            //                VerticalOptions = LayoutOptions.Fill,
+            //            }
+            //                .Row(3)
+            //                .Assign(out _myCollection),
+            //        },
+            //        Padding = 8,
+            //        RowSpacing = 8,
+            //    };
         }
 
         private void InitializeBindings()
